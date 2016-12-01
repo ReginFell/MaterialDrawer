@@ -184,6 +184,8 @@ class DrawerUtils {
      * @param drawer
      */
     public static void handleHeaderView(DrawerBuilder drawer) {
+        Context ctx = drawer.mSliderLayout.getContext();
+
         //use the AccountHeader if set
         if (drawer.mAccountHeader != null) {
             if (drawer.mAccountHeaderSticky) {
@@ -214,11 +216,11 @@ class DrawerUtils {
             if (drawer.mStickyHeaderShadow) {
                 //add a shadow
                 if (Build.VERSION.SDK_INT >= 21) {
-                    drawer.mStickyHeaderView.setElevation(UIUtils.convertDpToPixel(4, drawer.mActivity));
+                    drawer.mStickyHeaderView.setElevation(ctx.getResources().getDimension(R.dimen.material_drawer_sticky_footer_elevation));
                 } else {
                     View view = new View(drawer.mActivity);
                     view.setBackgroundResource(R.drawable.material_drawer_shadow_bottom);
-                    drawer.mSliderLayout.addView(view, RelativeLayout.LayoutParams.MATCH_PARENT, (int) UIUtils.convertDpToPixel(4, drawer.mActivity));
+                    drawer.mSliderLayout.addView(view, RelativeLayout.LayoutParams.MATCH_PARENT, ctx.getResources().getDimensionPixelOffset(R.dimen.material_drawer_sticky_footer_elevation));
                     //now align the shadow below the stickyHeader ;)
                     RelativeLayout.LayoutParams lps = (RelativeLayout.LayoutParams) view.getLayoutParams();
                     lps.addRule(RelativeLayout.BELOW, R.id.material_drawer_sticky_header);
