@@ -13,7 +13,7 @@
 
     <!-- Sticky footer elevation -->
     <dimen name="material_drawer_sticky_footer_elevation">4dp</dimen>
-    <!-- Sticky footer elevation -->
+    <!-- Sticky header elevation -->
     <dimen name="material_drawer_sticky_header_elevation">4dp</dimen>
 
     <!-- General margins for the drawer account header -->
